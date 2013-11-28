@@ -1,4 +1,4 @@
-SECTIONS = example.md references.md
+SECTIONS = example.md
 
 REFS = references.bib
 TEMPLATE = template.tex
@@ -17,7 +17,7 @@ clean:
 	rm -rf build
 
 pdf: pre
-	markdown2pdf --toc -N --bibliography=$(REFS) -o ./build/example.pdf --csl=./csl/$(CSL).csl --template=$(TEMPLATE) $(SECTIONS)
+	pandoc  -o ./build/example.pdf --template=$(TEMPLATE) $(SECTIONS)
 	#open ./build/example.pdf
 
 latex: pre
